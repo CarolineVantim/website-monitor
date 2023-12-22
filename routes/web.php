@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\SiteController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::middleware(['auth'])
+->prefix('admin')
+->group(function (){
+    Route::get('/sites', [SiteController::class, 'index']);
+});
 
 Route::get('/', function () {
     return view('welcome');
