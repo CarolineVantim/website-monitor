@@ -1,8 +1,13 @@
 ### Passo a passo
 
+Clonar o repositório
+```sh
+git clone git@github.com:CarolineVantim/website-monitor.git
+```
+
 Crie o Arquivo .env
 ```sh
-cp .env.example .env
+cp .env.example .envs
 ```
 
 Suba os containers do projeto
