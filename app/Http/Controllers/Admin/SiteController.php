@@ -12,7 +12,7 @@ class SiteController extends Controller
 {
     public function index(): View
     {
-        $sites = Site::all();
+        $sites = Site::paginate();
 
         return view('admin/sites/index', compact('sites'));
     }
