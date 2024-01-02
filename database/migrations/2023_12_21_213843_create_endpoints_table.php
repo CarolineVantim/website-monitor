@@ -19,7 +19,7 @@ return new class extends Migration
             $table->timestamp('next_check');
             $table->timestamps();
 
-            $table->foreign('site')
+            $table->foreign('site_id')
                     ->references('id')
                     ->on('sites');
         });
