@@ -30,7 +30,7 @@
                                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $endpoint->next_check }}</td>
                                     <td class="px-6 py-4">
                                         <a href="{{ route('endpoints.edit', [$site->id, $endpoint->id]) }}">Editar</a>
-                                        <a href="">Logs</a>
+                                        <a href="{{ route('endpoints.checks', [$endpoint->id])}}">Logs</a>
                                     </td>
                                 </tr>
                             @endforeach
