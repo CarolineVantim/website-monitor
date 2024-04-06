@@ -10,7 +10,7 @@ use Illuminate\View\View;
 
 class SiteController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         $sites = Site::paginate();
 
@@ -24,8 +24,7 @@ class SiteController extends Controller
 
     public function store(StoreUpdateSiteRequest $request): RedirectResponse
     {
-        $user = auth()->user();
-        $user->sites()->create($request->all());
+        $request->user()->sites()->create($request->all());
 
         return redirect()
                 ->route('sites.index')

@@ -7,19 +7,19 @@ use App\Http\Requests\StoreUpdateEndpointRequest;
 use App\Models\Endpoint;
 use App\Models\Site;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
 class EndpointController extends Controller
 {
     public function index(string $siteId):  View
     {
-        $site = Site::with('endpoints')->find($siteId);
+        $site = Site::with('endpoints.check')->find($siteId);
 
         if (!$site) {
             return back();
         }
+
+        $this->authorize('owner', $site);
 
         $endpoints = $site->endpoints;
 
