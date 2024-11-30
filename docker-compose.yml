@@ -49,6 +49,20 @@ services:
         networks:
             - laravel
 
+    grafana:
+        image: grafana/grafana
+        ports:
+            - "3000:3000"
+        environment:
+            - GF_SECURITY_ADMIN_USER=admin
+            - GF_SECURITY_ADMIN_PASSWORD=admin
+        volumes:
+            - grafana_data:/var/lib/grafana
+        depends_on:
+            - db
+        networks:
+            - laravel
+
 networks:
     laravel:
         driver: bridge
